@@ -1,20 +1,23 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import '../logic/ptlogic.dart';
 
 class PT extends StatefulWidget {
   const PT({super.key});
 
   @override
-  State<PT> createState() => _PTState();
+  State<PT> createState() => PTState();
 }
 
-class _PTState extends State<PT> {
+class PTState extends State<PT> {
   int selectedButton = 0;
-
+  bool next = false;
+  int counter = 0;
   @override
   Widget build(BuildContext context) {
     int selectedbuttonTemp = selectedButton + 1;
+    counter++;
     return Scaffold(
       backgroundColor: Colors.amber[100],
       appBar: AppBar(
@@ -29,11 +32,13 @@ class _PTState extends State<PT> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Selected button: ${selectedbuttonTemp}'),
+            Text('${selectedbuttonTemp}, ${next}, ${counter}'),
             Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                // this generates 5 buttons
-                children: List.generate(5, (index) {
+              mainAxisAlignment: MainAxisAlignment.center,
+              // this generates 5 buttons
+              children: List.generate(
+                5,
+                (index) {
                   return ElevatedButton(
                       onPressed: () {
                         setState(() {
@@ -46,7 +51,19 @@ class _PTState extends State<PT> {
                               ? Colors.deepPurple[200]
                               : Colors.blue[200]),
                       child: Text('${index + 1}'));
-                })),
+                },
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                setState(
+                  () {
+                    next = true;
+                  },
+                );
+              },
+              child: Text('Next'),
+            )
           ],
         ),
       ),
