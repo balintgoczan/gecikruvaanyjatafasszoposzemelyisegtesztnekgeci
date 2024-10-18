@@ -62,3 +62,7 @@ Map<String, int> personalityMap = {
   "My emotions can change quickly and dramatically.": 4,
   "I love coming up with fresh, original ideas.": 5,
 };
+
+List<String> questions = personalityMap.keys.toList();
+
+List<int> traitType = personalityMap.values.toList();
