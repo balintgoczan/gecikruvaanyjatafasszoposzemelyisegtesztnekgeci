@@ -34,7 +34,8 @@ class _PTState extends State<PT> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('${questions[currentQuestionIndex]}, $personalityTraits'),
+            Text(
+                '${questions[currentQuestionIndex]}, $personalityTraits,    $currentQuestionIndex'),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               // this generates 5 buttons
