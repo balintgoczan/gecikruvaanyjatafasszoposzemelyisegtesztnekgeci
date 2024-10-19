@@ -35,7 +35,8 @@ class _PTState extends State<PT> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('${questions[currentQuestionIndex]}, $personalityTraits'),
+            Text(
+                '${questions[currentQuestionIndex]}, $personalityTraits, $personalityPrecentage'),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               // this generates 5 buttons
@@ -70,6 +71,7 @@ class _PTState extends State<PT> {
                           if (currentQuestionIndex < questions.length - 1) {
                             currentQuestionIndex += 1;
                           } else {
+                            calculatingPrecentage();
                             Navigator.push(
                               context,
                               MaterialPageRoute(
