@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_string_interpolations
 
 import 'package:flutter/material.dart';
+import 'package:pt/pages/ui/results.dart';
 import '../logic/ptlogic.dart';
 import '../logic/ptquestions.dart';
 
@@ -34,8 +35,7 @@ class _PTState extends State<PT> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-                '${questions[currentQuestionIndex]}, $personalityTraits,    $currentQuestionIndex'),
+            Text('${questions[currentQuestionIndex]}, $personalityTraits'),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               // this generates 5 buttons
@@ -43,29 +43,43 @@ class _PTState extends State<PT> {
                 5,
                 (index) {
                   return ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          selectedButton = index;
-                        });
-                      },
-                      // ternary operator, its like an if-else statement, if selectedbutton = index, than color is purple, else its blue
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: selectedButton == index
-                              ? Colors.deepPurple[200]
-                              : Colors.blue[200]),
-                      child: Text('${index + 1}'));
+                    onPressed: () {
+                      setState(() {
+                        selectedButton = index;
+                      });
+                    },
+                    // ternary operator, its like an if-else statement, if selectedbutton = index, than color is purple, else its blue
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: selectedButton == index
+                            ? Colors.deepPurple[200]
+                            : Colors.blue[200]),
+                    child: Text('${index + 1}'),
+                  );
                 },
               ),
             ),
             ElevatedButton(
-              onPressed: () {
-                setState(
-                  () {
-                    currentQuestionIndex += 1;
-                    cp.addingValueToTrait();
-                  },
-                );
-              },
+              onPressed: selectedButton == -1
+                  ? null
+                  : () {
+                      setState(
+                        () {
+                          cp.addingValueToTrait();
+                          selectedButton = -1;
+
+                          if (currentQuestionIndex < questions.length - 1) {
+                            currentQuestionIndex += 1;
+                          } else {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Results(),
+                              ),
+                            );
+                          }
+                        },
+                      );
+                    },
               child: Text('Next'),
             ),
           ],

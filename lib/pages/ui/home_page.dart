@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
               MaterialPageRoute(builder: (context) => const PT()),
             );
           },
-          child: const Text('Go to pt'),
+          child: const Text('Go to personality test'),
         ),
       ),
     );
