@@ -1,0 +1,1 @@
+gecire nagyon durvan geci bazdmeg geci
