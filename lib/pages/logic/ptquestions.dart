@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 Map<String, int> personalityMap = {
   "I’m the life of the party and love being around people.": 1,
   "I have a big heart and easily feel for others.": 2,

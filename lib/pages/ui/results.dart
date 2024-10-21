@@ -15,7 +15,7 @@ class _ResultsState extends State<Results> {
     // haha just remove the const and everyhting works perfect(ima kms)
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(left: 20),
+        padding: const EdgeInsets.only(left: 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

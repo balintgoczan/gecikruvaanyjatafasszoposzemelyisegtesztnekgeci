@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pt/pages/ui/pt.dart';
-import './pt.dart'; // Import the SecondPage
+// Import the SecondPage
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
